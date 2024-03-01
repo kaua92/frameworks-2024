@@ -1,24 +1,11 @@
-var express = require('express');
-var app = express();
+var app = require('./config/server');
 
-app.get('/', function(req, res){
-	res.send('<html><body><h1>chamar qualquer coisa</h1></body></html>');
-})
+var rotaNoticias = require('./app/routes/noticias')(app);
 
-app.get('/cursos', function(req, res){
-	res.send('<html><body><h1>Not&iacute;cias IFMS dos cursos</h1></body></html>');
-})
+var rotaHome = require('./app/routes/home')(app);
 
-app.get('/esportes', function(req, res){
-	res.send('<html><body><h1>Not&iacute;cias IFMS dos esportes</h1></body></html>');
-})
+var rotaFormInclusaoNoticia = require('./app/routes/formulario_inclusao_noticias')(app);
 
-app.get('/pesquisa', function(req, res){
-	res.send('<html><body><h1>Not&iacute;cias IFMS das pesquisas</h1></body></html>');
-})
-app.get('/*', function(req, res){
-	res.send('<html><body><h1>Portal de Not&iacute;cias IFMS</h1></body></html>');
-})
 app.listen(3000, function(){
-	console.log("servidor rodando com express");
+    console.log('Servidor ON');
 });
