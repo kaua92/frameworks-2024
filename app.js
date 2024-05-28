@@ -8,6 +8,10 @@ var rotaFormInclusaoNoticia = require('./app/routes/formulario_inclusao_noticias
 
 var rotaesportes = require('./app/routes/esportes')(app);
 
+var rotacursos = require('./app/routes/cursos')(app);
+
+var rotapesquisa = require('./app/routes/pesquisa')(app);
+
 var rota404 = require('./app/routes/404')(app);
 
 app.listen(3000, function(){
